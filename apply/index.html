@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loan application — ArtVault</title>
+  <meta name="description" content="Apply for a short-term senior secured loan against fine art, watches, or collectibles. We typically respond within one business day." />
+  <meta name="theme-color" content="#14213d" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="brand" aria-label="ArtVault home">ArtVault</a>
+    <a href="mailto:info@artvault.fund" class="header-link">info@artvault.fund</a>
+  </header>
+
+  <main class="form-page">
+    <p class="meta">Borrower intake</p>
+    <h1>Loan application</h1>
+    <p class="lede">Tell us about the piece and your liquidity need. We typically respond within one business day. All information is confidential and reviewed by the ArtVault credit team.</p>
+
+    <form id="apply-form" novalidate>
+      <fieldset>
+        <legend>1 · Borrower</legend>
+
+        <div class="field">
+          <label for="entity-name">Legal entity name <span class="req">*</span></label>
+          <input type="text" id="entity-name" name="entity_name" required autocomplete="organization" />
+        </div>
+
+        <div class="field">
+          <label for="entity-type">Type of entity <span class="req">*</span></label>
+          <select id="entity-type" name="entity_type" required>
+            <option value="" disabled selected></option>
+            <option>Individual</option>
+            <option>Family Office</option>
+            <option>Corporate</option>
+            <option>Fund</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="country">Country of residence <span class="req">*</span></label>
+          <input type="text" id="country" name="country" required autocomplete="country-name" />
+        </div>
+
+        <div class="field">
+          <label for="email">Email <span class="req">*</span></label>
+          <input type="email" id="email" name="email" required autocomplete="email" />
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2 · The piece(s)</legend>
+
+        <div class="field">
+          <span class="group-label">Asset class <span class="req">*</span></span>
+          <div class="options" role="group" aria-label="Asset class">
+            <label><input type="checkbox" name="asset_class" value="Fine art" /> Fine art</label>
+            <label><input type="checkbox" name="asset_class" value="Watches" /> Watches</label>
+            <label><input type="checkbox" name="asset_class" value="Memorabilia" /> Memorabilia</label>
+            <label><input type="checkbox" name="asset_class" value="Classic cars" /> Classic cars</label>
+            <label><input type="checkbox" name="asset_class" value="Coins" /> Coins</label>
+            <label><input type="checkbox" name="asset_class" value="Other" /> Other</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="appraised-value">Approximate aggregate appraised value (USD) <span class="req">*</span></label>
+          <div class="prefix-wrap">
+            <span class="prefix" aria-hidden="true">$</span>
+            <input type="number" id="appraised-value" name="appraised_value" min="0" step="1000" required inputmode="numeric" />
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="group-label">Provenance documentation available? <span class="req">*</span></span>
+          <div class="options" role="radiogroup" aria-label="Provenance documentation available">
+            <label><input type="radio" name="provenance" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="provenance" value="No" /> No</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="group-label">Currently insured?</span>
+          <div class="options" role="radiogroup" aria-label="Currently insured">
+            <label><input type="radio" name="insured" value="Yes" /> Yes</label>
+            <label><input type="radio" name="insured" value="No" /> No</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="description">Brief description of the piece(s)</label>
+          <textarea id="description" name="description" maxlength="1000" placeholder="Artist / maker, title, year, medium, condition, anything notable."></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3 · Loan</legend>
+
+        <div class="field">
+          <label for="loan-amount">Requested loan amount (USD) <span class="req">*</span></label>
+          <div class="prefix-wrap">
+            <span class="prefix" aria-hidden="true">$</span>
+            <input type="number" id="loan-amount" name="loan_amount" min="0" step="1000" required inputmode="numeric" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="tenor">Preferred tenor <span class="req">*</span></label>
+          <select id="tenor" name="tenor" required>
+            <option>3 months</option>
+            <option selected>6 months</option>
+            <option>9 months</option>
+            <option>12 months</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="timing">How soon do you need funding? <span class="req">*</span></label>
+          <select id="timing" name="timing" required>
+            <option value="" disabled selected></option>
+            <option>Within 1 week</option>
+            <option>1–2 weeks</option>
+            <option>1 month</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="notes">Anything else we should know?</label>
+          <textarea id="notes" name="notes" placeholder="Other lenders considered, specific custody preferences, etc."></textarea>
+        </div>
+      </fieldset>
+
+      <div class="form-submit">
+        <button type="submit">Submit application</button>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+
+    <p class="form-footer">Submitted information is reviewed by the ArtVault credit team. All values must be verified through independent appraisal before any loan is originated. This page does not constitute a commitment to lend.</p>
+  </main>
+
+  <hr class="divider" />
+  <footer class="site-footer">
+    <div>© 2026 ArtVault. All rights reserved.</div>
+    <nav aria-label="Legal">
+      <a href="/terms/">Terms</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/data-retention/">Data retention</a>
+      <a href="mailto:info@artvault.fund">Contact</a>
+    </nav>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('apply-form');
+      var status = document.getElementById('form-status');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var fd = new FormData(form);
+        var entity = (fd.get('entity_name') || '').toString().trim();
+        var assets = fd.getAll('asset_class');
+        if (!entity) { status.textContent = 'Please enter your legal entity name.'; return; }
+        if (assets.length === 0) { status.textContent = 'Please select at least one asset class.'; return; }
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var lines = [
+          'Borrower',
+          '  Legal entity:        ' + entity,
+          '  Entity type:         ' + fd.get('entity_type'),
+          '  Country:             ' + fd.get('country'),
+          '  Email:               ' + fd.get('email'),
+          '  Phone:               ' + (fd.get('phone') || '—'),
+          '',
+          'Piece(s)',
+          '  Asset class:         ' + assets.join(', '),
+          '  Aggregate value:     $' + fd.get('appraised_value'),
+          '  Provenance docs:     ' + fd.get('provenance'),
+          '  Currently insured:   ' + (fd.get('insured') || '—'),
+          '  Description:         ' + (fd.get('description') || '—'),
+          '',
+          'Loan',
+          '  Requested amount:    $' + fd.get('loan_amount'),
+          '  Preferred tenor:     ' + fd.get('tenor'),
+          '  Funding timing:      ' + fd.get('timing'),
+          '  Notes:               ' + (fd.get('notes') || '—')
+        ];
+        var subject = 'Loan Application — ' + entity;
+        var body = lines.join('\n');
+        var href = 'mailto:info@artvault.fund?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        status.textContent = 'Opening your email client…';
+        window.location.href = href;
+      });
+    })();
+  </script>
+</body>
+</html>

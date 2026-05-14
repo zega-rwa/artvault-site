@@ -223,6 +223,217 @@ a:focus-visible, button:focus-visible {
   margin-bottom: 32px;
 }
 
+.legal-page h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  margin: 24px 0 8px;
+  color: var(--navy);
+}
+
+.form-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 40px 80px;
+}
+
+.form-page h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.form-page .lede {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--navy);
+  max-width: 56ch;
+  margin-bottom: 48px;
+}
+
+.form-page .meta {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy-60);
+  margin-bottom: 24px;
+}
+
+.form-page fieldset {
+  border: none;
+  margin: 0 0 48px;
+  padding: 0;
+}
+
+.form-page legend {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy-60);
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--hairline);
+  width: 100%;
+}
+
+.field {
+  margin-bottom: 28px;
+}
+
+.field label,
+.field .group-label {
+  display: block;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy-60);
+  margin-bottom: 8px;
+}
+
+.field .req {
+  color: var(--navy);
+  font-weight: 400;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
+.field input[type="number"],
+.field select,
+.field textarea {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--navy);
+  background: transparent;
+  padding: 8px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: var(--navy);
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.field select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--navy) 50%),
+                    linear-gradient(135deg, var(--navy) 50%, transparent 50%);
+  background-position: calc(100% - 14px) center, calc(100% - 8px) center;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 28px;
+}
+
+.field textarea {
+  min-height: 96px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--navy-40);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-bottom-width: 2px;
+  padding-bottom: 7px;
+}
+
+.field .prefix-wrap {
+  position: relative;
+}
+
+.field .prefix-wrap .prefix {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: var(--navy-60);
+  pointer-events: none;
+}
+
+.field .prefix-wrap input {
+  padding-left: 18px;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 4px;
+}
+
+.options label {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--navy);
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.options input {
+  margin-right: 8px;
+  accent-color: var(--navy);
+  width: 16px;
+  height: 16px;
+}
+
+.form-submit {
+  margin-top: 16px;
+}
+
+.form-submit button {
+  background: var(--navy);
+  color: var(--cream);
+  border: 1.5px solid var(--navy);
+  padding: 16px 32px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.005em;
+  border-radius: 2px;
+  cursor: pointer;
+  min-width: 220px;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.form-submit button:hover { opacity: 0.85; transform: translateY(-1px); }
+
+.form-status {
+  margin-top: 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--navy-60);
+  min-height: 22px;
+}
+
+.form-footer {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hairline);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--navy-60);
+}
+
 @media (max-width: 768px) {
   .site-header { padding: 20px 24px; }
   .hero { padding: 24px; min-height: auto; }
@@ -237,4 +448,7 @@ a:focus-visible, button:focus-visible {
   .site-footer { padding: 24px; flex-direction: column; }
   .legal-page { padding: 16px 24px 60px; }
   .legal-page h1 { font-size: 34px; }
+  .form-page { padding: 16px 24px 60px; }
+  .form-submit button { width: 100%; }
+  .options { flex-direction: column; gap: 12px; }
 }

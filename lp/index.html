@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Capital allocation — ArtVault</title>
+  <meta name="description" content="For institutional and accredited LPs. ArtVault is building its anchor allocator pool, targeting 10–12% APY on senior secured art-backed credit." />
+  <meta name="theme-color" content="#14213d" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="brand" aria-label="ArtVault home">ArtVault</a>
+    <a href="mailto:info@artvault.fund" class="header-link">info@artvault.fund</a>
+  </header>
+
+  <main class="form-page">
+    <p class="meta">LP intake</p>
+    <h1>Capital allocation</h1>
+    <p class="lede">For institutional and accredited LPs. We're currently building out our anchor allocator pool, targeting 10–12% APY on senior secured art-backed credit. Tell us about your mandate and we'll reply within one business day.</p>
+
+    <form id="lp-form" novalidate>
+      <fieldset>
+        <legend>1 · Entity</legend>
+
+        <div class="field">
+          <label for="entity-name">Legal entity name <span class="req">*</span></label>
+          <input type="text" id="entity-name" name="entity_name" required autocomplete="organization" />
+        </div>
+
+        <div class="field">
+          <label for="entity-type">Entity type <span class="req">*</span></label>
+          <select id="entity-type" name="entity_type" required>
+            <option value="" disabled selected></option>
+            <option>Family Office</option>
+            <option>Private Credit Fund</option>
+            <option>Pension / Endowment</option>
+            <option>Insurance</option>
+            <option>RIA</option>
+            <option>Other Institutional</option>
+            <option>Accredited Individual</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="country">Country <span class="req">*</span></label>
+          <input type="text" id="country" name="country" required autocomplete="country-name" />
+        </div>
+
+        <div class="field">
+          <label for="contact-name">Primary contact name <span class="req">*</span></label>
+          <input type="text" id="contact-name" name="contact_name" required autocomplete="name" />
+        </div>
+
+        <div class="field">
+          <label for="email">Primary contact email <span class="req">*</span></label>
+          <input type="email" id="email" name="email" required autocomplete="email" />
+        </div>
+
+        <div class="field">
+          <label for="phone">Primary contact phone</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2 · Mandate</legend>
+
+        <div class="field">
+          <label for="ticket-size">Indicative ticket size (USD) <span class="req">*</span></label>
+          <select id="ticket-size" name="ticket_size" required>
+            <option value="" disabled selected></option>
+            <option>$100K – $1M</option>
+            <option>$1M – $5M</option>
+            <option>$5M – $25M</option>
+            <option>$25M+</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <span class="group-label">Existing exposure to art-backed credit? <span class="req">*</span></span>
+          <div class="options" role="radiogroup" aria-label="Existing exposure to art-backed credit">
+            <label><input type="radio" name="existing_exposure" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="existing_exposure" value="No" /> No</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="target-irr">Required minimum target net IRR (%)</label>
+          <input type="text" id="target-irr" name="target_irr" placeholder="e.g., 10–12%" />
+        </div>
+
+        <div class="field">
+          <label for="strategy-fit">Strategy fit</label>
+          <textarea id="strategy-fit" name="strategy_fit" placeholder="Mandate constraints, geography, structure preferences, anything else relevant."></textarea>
+        </div>
+      </fieldset>
+
+      <div class="form-submit">
+        <button type="submit">Submit interest</button>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+
+    <p class="form-footer">ArtVault is a private credit fund. Securities and partnership interests are offered exclusively to accredited investors and qualified purchasers under applicable U.S. and foreign exemptions. This page does not constitute an offer to sell.</p>
+  </main>
+
+  <hr class="divider" />
+  <footer class="site-footer">
+    <div>© 2026 ArtVault. All rights reserved.</div>
+    <nav aria-label="Legal">
+      <a href="/terms/">Terms</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/data-retention/">Data retention</a>
+      <a href="mailto:info@artvault.fund">Contact</a>
+    </nav>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('lp-form');
+      var status = document.getElementById('form-status');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var fd = new FormData(form);
+        var entity = (fd.get('entity_name') || '').toString().trim();
+        if (!entity) { status.textContent = 'Please enter your legal entity name.'; return; }
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var lines = [
+          'Entity',
+          '  Legal entity:        ' + entity,
+          '  Entity type:         ' + fd.get('entity_type'),
+          '  Country:             ' + fd.get('country'),
+          '  Contact name:        ' + fd.get('contact_name'),
+          '  Contact email:       ' + fd.get('email'),
+          '  Contact phone:       ' + (fd.get('phone') || '—'),
+          '',
+          'Mandate',
+          '  Ticket size:         ' + fd.get('ticket_size'),
+          '  Existing exposure:   ' + fd.get('existing_exposure'),
+          '  Target net IRR:      ' + (fd.get('target_irr') || '—'),
+          '  Strategy fit:        ' + (fd.get('strategy_fit') || '—')
+        ];
+        var subject = 'Capital Allocation — ' + entity;
+        var body = lines.join('\n');
+        var href = 'mailto:info@artvault.fund?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        status.textContent = 'Opening your email client…';
+        window.location.href = href;
+      });
+    })();
+  </script>
+</body>
+</html>
