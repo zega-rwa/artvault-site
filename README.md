@@ -50,7 +50,7 @@ That's it — the site is live.
 
 ## Editing copy
 
-All content is in plain HTML; the hero copy lives in `index.html` and legal pages live under `/terms/`, `/privacy/`, `/data-retention/`. The borrower and LP intake forms live under `/apply/` and `/lp/`; both submit via `mailto:info@artvault.fund`.
+All content is in plain HTML. The hero copy lives in `index.html`; the primary CTA links to `/apply` (borrower intake) and the secondary CTA links to `/lp` (LP capital allocation). Legal pages live under `/terms/`, `/privacy/`, and `/data-retention/`.
 
 ## Brand tokens
 
