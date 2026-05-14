@@ -13,8 +13,10 @@ Pure static HTML + CSS. No build step, no JavaScript, no framework. Fonts are lo
 ```
 .
 ├── index.html              # Hero
-├── terms/index.html        # Terms of Service (draft template)
-├── privacy/index.html      # Privacy Policy (draft template)
+├── apply/index.html        # Borrower loan application
+├── lp/index.html           # LP capital allocation form
+├── terms/index.html        # Terms of Service
+├── privacy/index.html      # Privacy Policy
 ├── data-retention/index.html
 ├── assets/
 │   ├── style.css           # Single shared stylesheet
@@ -48,9 +50,7 @@ That's it — the site is live.
 
 ## Editing copy
 
-All content is in plain HTML. The hero copy lives in `index.html`. The three legal pages each carry an italic *"Draft template — pending counsel review"* note at the top; counsel should review and the note removed before relying on them.
-
-CTA links are `mailto:info@artvault.fund` with pre-filled subject lines. Update the email or replace with a form when one is ready.
+All content is in plain HTML; the hero copy lives in `index.html` and legal pages live under `/terms/`, `/privacy/`, `/data-retention/`. The borrower and LP intake forms live under `/apply/` and `/lp/`; both submit via `mailto:info@artvault.fund`.
 
 ## Brand tokens
 

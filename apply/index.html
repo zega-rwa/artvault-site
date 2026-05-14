@@ -108,7 +108,7 @@
         <legend>3 · Loan</legend>
 
         <div class="field">
-          <label for="loan-amount">Requested loan amount (USD) <span class="req">*</span></label>
+          <label for="loan-amount">Loan amount (USD) <span class="req">*</span></label>
           <div class="prefix-wrap">
             <span class="prefix" aria-hidden="true">$</span>
             <input type="number" id="loan-amount" name="loan_amount" min="0" step="1000" required inputmode="numeric" />
@@ -190,7 +190,7 @@
           '  Description:         ' + (fd.get('description') || '—'),
           '',
           'Loan',
-          '  Requested amount:    $' + fd.get('loan_amount'),
+          '  Loan amount:         $' + fd.get('loan_amount'),
           '  Preferred tenor:     ' + fd.get('tenor'),
           '  Funding timing:      ' + fd.get('timing'),
           '  Notes:               ' + (fd.get('notes') || '—')
